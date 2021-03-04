@@ -6,42 +6,60 @@ import {
     Switch,
 } from 'react-router-dom';
 import Header from './Header.js';
-// import PrivateRoute from './components/PrivateRoute.js';
+import PrivateRoute from './PrivateRoute.js';
 import Home from './Home.js';
-// import SignUpPage from './AuthPages/SignUpPage.js';
-// import LoginPage from './AuthPages/LoginPage.js';
+import SignupPage from './SignupPage.js';
+import LoginPage from './LoginPage.js';
 import PhotoSearchPage from './PhotoSearchPage.js';
-// import { getTokenFromLocalStorage, putTokenInLocalStorage } from './local-storage-utils';
-// import FavoritesPage from './FavoritesPage/FavoritesPage';
+import { getTokenFromLocalStorage, putTokenInLocalStorage } from './local-storage-utils.js';
+import FavoritesPage from './favorites.js';
 
 export default class App extends Component {
+
+  state = {
+    token: getTokenFromLocalStorage(),
+  }
+
+  handleUserChange = (token)=> {
+    this.setState({token})
+    putTokenInLocalStorage(token);
+  }
+
+  handleLogout = () => {
+    this.handleUserChange('');
+  }
 
     render() {
         return (
             <div>
                 <Router>
-                  <Header/>
+                  <Header
+                  token={this.state.token}
+                  handleLogout={this.handleLogout}
+                  />
                     <Switch>
                         <Route 
                             path="/" 
                             exact
                             render={(routerProps) => <Home {...routerProps} />} 
                         />
-                        <Route 
+                        <PrivateRoute 
                             path="/search" 
                             exact
-                            render={(routerProps) => <PhotoSearchPage 
-                              {...routerProps} 
-                              // user={this.state.user} 
+                            token={this.props.token}
+                            render={(routerProps) => 
+                              <PhotoSearchPage 
+                                token={this.state.token} 
+                                {...routerProps} 
                               />} 
                         />
-                        {/* <Route 
+                        <PrivateRoute 
                             path="/favorites" 
                             exact
-                            token={user && user.token}
+                            token={this.state.token}
                             render={(routerProps) => 
                               <FavoritesPage 
-                                user={this.state.user}
+                                token={this.state.token}
                                 {...routerProps} 
                               />} 
                         />
@@ -58,11 +76,11 @@ export default class App extends Component {
                           path="/signup" 
                           exact
                           render={(routerProps) => 
-                            <SignUpPage 
+                            <SignupPage 
                               handleUserChange={this.handleUserChange}
                               {...routerProps} 
                             />} 
-                        /> */}
+                        />
                     </Switch>
                 </Router>
             </div>
