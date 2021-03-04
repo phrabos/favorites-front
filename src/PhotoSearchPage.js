@@ -23,7 +23,7 @@ export default class PhotoSearchPage extends Component {
                         <h3>{photo.title}</h3>
                         <p>{photo.date}</p>
                         <img src={photo.url} alt={photo.title}/>
-                        <p>{photo.explanation}</p>
+                        {/* <p>{photo.explanation}</p> */}
                     </div>)
                 }    
             </div>        
