@@ -19,6 +19,8 @@ export default class SignupPage extends Component {
 
         this.props.handleUserChange(user.token)
 
+        this.props.history.push('/search');
+
 
     }
     render() {

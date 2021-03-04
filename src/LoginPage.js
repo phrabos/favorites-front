@@ -18,7 +18,7 @@ export default class LoginPage extends Component {
         const user = await userLogin(this.state.email, this.state.password);
 
         this.props.handleUserChange(user.token)
-
+        this.props.history.push('/favorites');
 
     }
     render() {
