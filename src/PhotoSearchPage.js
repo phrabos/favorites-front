@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getPhotos } from './api-utils'
+import { getPhotos, setApod } from './api-utils'
 
 export default class PhotoSearchPage extends Component {
     state = {
@@ -10,7 +10,9 @@ export default class PhotoSearchPage extends Component {
     componentDidMount = async() => {
        const photos = await getPhotos();
 
-       this.setState({photos})
+       await this.setState({photos})
+
+       await this.state.photos.map(()=> photo => setApod(photo))
 
     }
     render() {
