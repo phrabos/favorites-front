@@ -10,7 +10,7 @@ import PrivateRoute from './PrivateRoute.js';
 import Home from './Home.js';
 import SignupPage from './SignupPage.js';
 import LoginPage from './LoginPage.js';
-import PhotoSearchPage from './PhotoSearchPage.js';
+import SearchPage from './PhotoSearchPage.js';
 import { getTokenFromLocalStorage, putTokenInLocalStorage } from './local-storage-utils.js';
 import FavoritesPage from './favorites.js';
 
@@ -39,22 +39,22 @@ export default class App extends Component {
                   />
                     <Switch>
                         <Route 
-                            path="/" 
+                            path='/' 
                             exact
                             render={(routerProps) => <Home {...routerProps} />} 
                         />
                         <PrivateRoute 
-                            path="/search" 
+                            path='/search' 
                             exact
-                            token={this.props.token}
+                            token={this.state.token}
                             render={(routerProps) => 
-                              <PhotoSearchPage 
-                                token={this.state.token} 
+                              <SearchPage 
+                                token={this.state.token}
                                 {...routerProps} 
                               />} 
                         />
                         <PrivateRoute 
-                            path="/favorites" 
+                            path='/favorites' 
                             exact
                             token={this.state.token}
                             render={(routerProps) => 
@@ -64,7 +64,7 @@ export default class App extends Component {
                               />} 
                         />
                         <Route 
-                          path="/login" 
+                          path='/login' 
                           exact
                           render={(routerProps) => 
                             <LoginPage 
@@ -73,7 +73,7 @@ export default class App extends Component {
                             />} 
                         />
                         <Route 
-                          path="/signup" 
+                          path='/signup' 
                           exact
                           render={(routerProps) => 
                             <SignupPage 

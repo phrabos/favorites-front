@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { getPhotos, searchPhotos, addFavorite, getFavorites } from './api-utils.js';
+import { searchPhotos, addFavorite, getFavorites } from './api-utils.js';
 
-export default class PhotoSearchPage extends Component {
+export default class SearchPage extends Component {
     state = {
         photos: [],
         favorites: [],
