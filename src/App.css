@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  width: 100%;
+  background: #1c1e27;
+
 }
 
 .App-logo {
@@ -28,21 +31,19 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 p, h3 {
   margin: 0;
 }
 a {
   margin: 10px;
+  color: gainsboro;
+  font-size: 18px;
 }
-.photos {
+
+.header-div {
+  height: 75px;
+}
+/* .photos {
   display: flex;
   flex-wrap: wrap;
 }
@@ -61,4 +62,4 @@ a {
 .photo img {
   width: 400px;
   height: 400px;
-}
+} */

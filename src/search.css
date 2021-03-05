@@ -1,0 +1,40 @@
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.photo {
+  width: 500px;
+  height: 500px;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo img {
+  width: 400px;
+  height: 400px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    height: 40px;
+    border-radius: 5px;
+    padding: 5px;
+}
+button {
+    border-radius: 5px;
+    border: 2px solid salmon;
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}

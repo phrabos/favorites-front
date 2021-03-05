@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { searchPhotos, addFavorite, getFavorites } from './api-utils.js';
+import './search.css';
 
 export default class SearchPage extends Component {
     state = {
@@ -44,8 +45,8 @@ export default class SearchPage extends Component {
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <input value={this.state.search} onChange={this.handleSearchChange} />
-                    <button>Search Photos</button>
+                    <input value={this.state.search} onChange={this.handleSearchChange} placeholder='search'/>
+                    <button>Submit</button>
                 </form>
                 <div className='photos'>
                     {
